@@ -1,0 +1,8 @@
+/* Diglett eye-tracking styles */
+.diglett-container {
+  position: fixed;
+  bottom: 0;
+  right: 2%;
+  z-index: 1000;
+  cursor: pointer;
+}
