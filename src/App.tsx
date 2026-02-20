@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
-import PlaceholderPage from "./pages/PlaceholderPage";
+import PhotographyPage from "./pages/PhotographyPage";
 import WritingPage from "./pages/WritingPage";
 import WritingDetailPage from "./pages/WritingDetailPage";
 
@@ -17,10 +17,7 @@ function App() {
         <Route path="projects/:slug" element={<ProjectDetailPage />} />
         <Route path="writing" element={<WritingPage />} />
         <Route path="writing/:slug" element={<WritingDetailPage />} />
-        <Route
-          path="photography"
-          element={<PlaceholderPage title="Photography" />}
-        />
+        <Route path="photography" element={<PhotographyPage />} />
         {/* <Route
           path="board-games"
           element={<PlaceholderPage title="Board Games" />}

@@ -496,6 +496,42 @@
   font-style: italic;
 }
 
+/* ── Photography page ── */
+
+.photography-page h1 {
+  margin-bottom: 2rem;
+}
+
+.photography-loading,
+.photography-error {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.photography-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.photography-item {
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.photography-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-color-scheme: light) {
+  .photography-item {
+    background: rgba(0, 0, 0, 0.03);
+  }
+}
+
 /* ── Home page ── */
 
 .home-page {
