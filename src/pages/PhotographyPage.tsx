@@ -1,15 +1,21 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Masonry from "react-masonry-css";
 import {
   fetchPhotographyImages,
   type DriveImage,
 } from "../lib/googleDrive";
 
+const INITIAL_BATCH = 6;
+const BATCH_SIZE = 6;
+const BATCH_DELAY_MS = 300;
+
 export default function PhotographyPage() {
-  const [images, setImages] = useState<DriveImage[]>([]);
+  const [allImages, setAllImages] = useState<DriveImage[]>([]);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<DriveImage | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     let cancelled = false;
@@ -17,7 +23,8 @@ export default function PhotographyPage() {
     fetchPhotographyImages()
       .then((imgs) => {
         if (!cancelled) {
-          setImages(imgs);
+          setAllImages(imgs);
+          setVisibleCount(INITIAL_BATCH);
           setLoading(false);
         }
       })
@@ -34,6 +41,16 @@ export default function PhotographyPage() {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (loading || visibleCount >= allImages.length) return;
+
+    timerRef.current = setTimeout(() => {
+      setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, allImages.length));
+    }, BATCH_DELAY_MS);
+
+    return () => clearTimeout(timerRef.current);
+  }, [loading, visibleCount, allImages.length]);
 
   const closeLightbox = useCallback(() => setSelectedImage(null), []);
 
@@ -64,7 +81,7 @@ export default function PhotographyPage() {
     );
   }
 
-  if (images.length === 0) {
+  if (allImages.length === 0) {
     return (
       <div className="photography-page">
         <h1>Photography</h1>
@@ -72,6 +89,8 @@ export default function PhotographyPage() {
       </div>
     );
   }
+
+  const visibleImages = allImages.slice(0, visibleCount);
 
   return (
     <div className="photography-page">
@@ -81,7 +100,7 @@ export default function PhotographyPage() {
         className="photography-grid"
         columnClassName="photography-grid-column"
       >
-        {images.map((img) => (
+        {visibleImages.map((img) => (
           <div
             key={img.id}
             className="photography-item"
