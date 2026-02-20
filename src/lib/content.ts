@@ -16,6 +16,20 @@ export interface Project {
   folder: string;
 }
 
+export interface WritingFrontmatter {
+  title: string;
+  summary?: string;
+  image?: string;
+  date?: string;
+}
+
+export interface Writing {
+  slug: string;
+  frontmatter: WritingFrontmatter;
+  body: string;
+  folder: string;
+}
+
 function parseFrontmatter(raw: string): { attributes: Record<string, string>; body: string } {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { attributes: {}, body: raw };
@@ -41,6 +55,9 @@ const projectMdFiles = import.meta.glob('/src/data/projects/*/*.md', { eager: tr
 
 // Glob-import all images from the data folder
 const dataImages = import.meta.glob('/src/data/**/*.{png,jpg,jpeg,gif,webp,svg}', { eager: true, import: 'default' }) as Record<string, string>;
+
+// Glob-import all markdown files from writing as raw strings
+const writingMdFiles = import.meta.glob('/src/data/writing/*/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 
 // Glob-import home markdown
 const homeMdFiles = import.meta.glob('/src/data/home/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
@@ -91,6 +108,43 @@ export function getProjects(): Project[] {
 
 export function getProject(slug: string): Project | undefined {
   return getProjects().find((p) => p.slug === slug);
+}
+
+// Get all writing data
+export function getWritings(): Writing[] {
+  const writings: Writing[] = [];
+
+  for (const [path, raw] of Object.entries(writingMdFiles)) {
+    const parts = path.split('/');
+    const slug = parts[parts.length - 2]; // folder name = slug
+    const folder = parts.slice(0, -1).join('/');
+    const { attributes, body } = parseFrontmatter(raw);
+
+    writings.push({
+      slug,
+      frontmatter: {
+        title: attributes.title || slug,
+        summary: attributes.summary,
+        image: attributes.image,
+        date: attributes.date,
+      },
+      body,
+      folder,
+    });
+  }
+
+  // Sort by date descending (most recent first)
+  writings.sort((a, b) => {
+    if (!a.frontmatter.date) return 1;
+    if (!b.frontmatter.date) return -1;
+    return b.frontmatter.date.localeCompare(a.frontmatter.date);
+  });
+
+  return writings;
+}
+
+export function getWriting(slug: string): Writing | undefined {
+  return getWritings().find((w) => w.slug === slug);
 }
 
 // Get homepage markdown content

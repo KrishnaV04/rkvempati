@@ -5,8 +5,8 @@ const navItems = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
   { to: "/writing", label: "Writing" },
-  { to: "/art-gallery", label: "Art Gallery" },
-  { to: "/board-games", label: "Board Games" },
+  { to: "/photography", label: "Photography" },
+  // { to: "/board-games", label: "Board Games" }, // temporarily disabled
 ];
 
 export default function Layout() {

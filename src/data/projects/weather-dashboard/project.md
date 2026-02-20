@@ -9,6 +9,8 @@ date: "2025-11-20"
 
 A full-stack weather dashboard that displays real-time meteorological data with interactive visualizations and historical trend analysis.
 
+![Dashboard screenshot](./preview.png)
+
 ## Features
 
 - **Live Radar**: Animated precipitation overlay on interactive maps
@@ -18,6 +20,44 @@ A full-stack weather dashboard that displays real-time meteorological data with 
 
 ## Tech Stack
 
-Built with React, D3.js, and Mapbox GL on the frontend. The backend uses Python (FastAPI) to aggregate data from multiple weather APIs and store it in TimescaleDB.
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React, D3.js, Mapbox GL |
+| Backend | Python, FastAPI |
+| Database | TimescaleDB |
+| Hosting | AWS (ECS + CloudFront) |
 
-![Dashboard screenshot](./preview.png)
+The backend aggregates data from the [Open-Meteo API](https://open-meteo.com/) and the [NOAA Weather API](https://www.weather.gov/documentation/services-web-api).
+
+### API Example
+
+Fetching a 7-day forecast:
+
+```bash
+curl https://api.weatherdash.dev/forecast?lat=37.7749&lon=-122.4194&days=7
+```
+
+Response:
+
+```json
+{
+  "location": "San Francisco, CA",
+  "forecast": [
+    { "date": "2025-11-20", "high": 62, "low": 48, "condition": "Partly Cloudy" },
+    { "date": "2025-11-21", "high": 58, "low": 45, "condition": "Rain" }
+  ]
+}
+```
+
+> Built this because every weather app I tried either had too many ads or not enough data granularity.
+
+## Lessons Learned
+
+1. TimescaleDB's hypertables made historical queries *significantly* faster than plain PostgreSQL
+2. Mapbox GL's `addSource` API is powerful but poorly documented — the [community examples](https://docs.mapbox.com/mapbox-gl-js/example/) helped a lot
+3. Rate limiting across multiple upstream APIs requires careful orchestration
+
+#### Links
+
+- [Source Code](https://github.com/rkvempati/weather-dashboard)
+- [Live Demo](https://weather.rkvempati.dev)

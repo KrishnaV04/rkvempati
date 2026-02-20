@@ -5,6 +5,8 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import WritingPage from "./pages/WritingPage";
+import WritingDetailPage from "./pages/WritingDetailPage";
 
 function App() {
   return (
@@ -13,15 +15,16 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="writing" element={<PlaceholderPage title="Writing" />} />
+        <Route path="writing" element={<WritingPage />} />
+        <Route path="writing/:slug" element={<WritingDetailPage />} />
         <Route
-          path="art-gallery"
-          element={<PlaceholderPage title="Art Gallery" />}
+          path="photography"
+          element={<PlaceholderPage title="Photography" />}
         />
-        <Route
+        {/* <Route
           path="board-games"
           element={<PlaceholderPage title="Board Games" />}
-        />
+        /> temporarily disabled */}
       </Route>
     </Routes>
   );

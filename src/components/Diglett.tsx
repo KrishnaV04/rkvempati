@@ -12,7 +12,7 @@ const PUPIL_RX = 1.5; // Horizontal radius of white pupil
 const PUPIL_RY = 3; // Vertical radius of white pupil
 const PUPIL_BASE_OFFSET_X = 2; // Base offset of pupil from socket center (X)
 const PUPIL_BASE_OFFSET_Y = -5; // Base offset of pupil from socket center (Y)
-const PROXIMITY_THRESHOLD = 200; // Distance in pixels - Diglett starts hiding when cursor is closer than this
+const PROXIMITY_THRESHOLD = 0; // Distance in pixels - Diglett starts hiding when cursor is closer than this
 const MAX_HIDE_DISTANCE = 100; // Maximum pixels to move down when approaching
 const FULL_HIDE_DISTANCE = 120; // Pixels to move down to fully disappear behind ground
 

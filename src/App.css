@@ -40,6 +40,56 @@
   font-weight: 600;
 }
 
+.markdown-body a {
+  color: #6ab0f3;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown-body a:hover {
+  opacity: 0.8;
+}
+
+.markdown-body blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+.markdown-body blockquote p {
+  margin: 0;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body th {
+  font-weight: 600;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.markdown-body tr:last-child td {
+  border-bottom: none;
+}
+
 @media (prefers-color-scheme: light) {
   .markdown-body code {
     background: rgba(0, 0, 0, 0.06);
@@ -47,6 +97,55 @@
 
   .markdown-body pre {
     background: rgba(0, 0, 0, 0.04);
+  }
+
+  .markdown-body a {
+    color: #2563eb;
+  }
+
+  .markdown-body blockquote {
+    border-left-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .markdown-body th,
+  .markdown-body td {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ── Search bar ── */
+
+.search-bar {
+  width: 30%;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-bar::placeholder {
+  opacity: 0.4;
+}
+
+.search-bar:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-color-scheme: light) {
+  .search-bar {
+    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .search-bar:focus {
+    border-color: rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -64,13 +163,16 @@
 
 .project-card {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
+  height: 6rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
   transition: background 0.2s;
   text-decoration: none;
   color: inherit;
+  position: relative;
 }
 
 .project-card:hover {
@@ -107,6 +209,8 @@
   flex-direction: column;
   gap: 0.25rem;
   min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 .project-card-body h2 {
@@ -115,9 +219,47 @@
   font-weight: 600;
 }
 
+.project-card-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-start;
+  gap: .75rem;
+  margin-left: auto;
+}
+
 .project-card-date {
   font-size: 0.8rem;
   opacity: 0.5;
+}
+
+.project-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.project-card-link:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  .project-card-link {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .project-card-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 .project-card-summary {
@@ -125,6 +267,146 @@
   margin: 0;
   opacity: 0.7;
   line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ── Writing page ── */
+
+.writing-page h1 {
+  margin-bottom: 2rem;
+}
+
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.writing-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  height: 5.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.writing-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: light) {
+  .writing-card {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .writing-card:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.writing-card-image {
+  flex-shrink: 0;
+  width: 120px;
+  height: 90px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.writing-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.writing-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.writing-card-body h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.writing-card-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-start;
+  gap: 0.25rem;
+  margin-left: auto;
+  margin-top: 0.35rem;
+}
+
+.writing-card-date {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.writing-card-summary {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.7;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Writing detail ── */
+
+.writing-detail {
+  max-width: 700px;
+}
+
+.writing-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.writing-header-left h1 {
+  margin: 0;
+}
+
+.writing-date {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.writing-summary {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.writing-header-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 0.25rem;
 }
 
 /* ── Project detail ── */
@@ -145,17 +427,63 @@
   opacity: 0.8;
 }
 
-.project-meta {
+.project-header {
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.project-header-left h1 {
+  margin: 0;
+}
+
+.project-date {
+  display: inline-block;
+  margin-top: 0.4rem;
   font-size: 0.85rem;
   opacity: 0.6;
 }
 
-.project-meta a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.project-summary {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+.project-header-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.project-website-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.project-website-link:hover {
+  opacity: 0.8;
+}
+
+@media (prefers-color-scheme: light) {
+  .project-website-link {
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+  }
 }
 
 /* ── Placeholder page ── */
