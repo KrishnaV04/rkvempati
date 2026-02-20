@@ -3,13 +3,18 @@ export interface DriveImage {
   name: string;
   mimeType: string;
   thumbnailUrl: string;
+  fullUrl: string;
 }
 
 const FOLDER_ID = "1H0cZ8MO66NNCJKv9W2l5hW5cykDa6kId";
 const API_KEY = import.meta.env.VITE_GOOGLE_DRIVE_API_KEY;
 
-function buildImageUrl(fileId: string): string {
+function buildThumbnailUrl(fileId: string): string {
   return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+}
+
+function buildFullUrl(fileId: string): string {
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w4000`;
 }
 
 // Note: pageSize=100 is the max per request. If the folder grows beyond 100
@@ -32,11 +37,12 @@ export async function fetchPhotographyImages(): Promise<DriveImage[]> {
     data.files ?? [];
 
   return files
-    .filter((f) => f.mimeType === "image/jpeg")
+    .filter((f) => f.mimeType.startsWith("image/"))
     .map((f) => ({
       id: f.id,
       name: f.name,
       mimeType: f.mimeType,
-      thumbnailUrl: buildImageUrl(f.id),
+      thumbnailUrl: buildThumbnailUrl(f.id),
+      fullUrl: buildFullUrl(f.id),
     }));
 }
