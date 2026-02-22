@@ -508,6 +508,36 @@
   font-style: italic;
 }
 
+.photo-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 5rem 0;
+}
+
+.photo-loader-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.photo-loader-icon.spinning {
+  animation: photo-spin 0.6s linear infinite;
+}
+
+.photo-loader-text {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+  text-transform: uppercase;
+}
+
+@keyframes photo-spin {
+  to { transform: rotate(360deg); }
+}
+
+
 .photography-grid {
   display: flex;
   margin-left: -1rem;
@@ -533,6 +563,16 @@
   width: 100%;
   height: auto;
   display: block;
+  transition: filter 0.5s ease;
+}
+
+.photography-item img.photo-thumb {
+  filter: blur(12px);
+  transform: scale(1.08);
+}
+
+.photography-item img.photo-upgraded {
+  filter: none;
 }
 
 .photography-item {

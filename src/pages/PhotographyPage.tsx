@@ -5,52 +5,57 @@ import {
   type DriveImage,
 } from "../lib/googleDrive";
 
-const INITIAL_BATCH = 6;
-const BATCH_SIZE = 6;
-const BATCH_DELAY_MS = 300;
+type LoadPhase = "loading" | "done";
 
 export default function PhotographyPage() {
   const [allImages, setAllImages] = useState<DriveImage[]>([]);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
-  const [loading, setLoading] = useState(true);
+  const [loadPhase, setLoadPhase] = useState<LoadPhase>("loading");
   const [error, setError] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<DriveImage | null>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const [upgradedImages, setUpgradedImages] = useState<Set<string>>(new Set());
+  const upgradeIdxRef = useRef(0);
+
+  const runUpgradeQueue = useCallback((images: DriveImage[]) => {
+    const idx = upgradeIdxRef.current;
+    if (idx >= images.length) return;
+
+    const image = images[idx];
+    const tempImg = new Image();
+    tempImg.onload = () => {
+      setUpgradedImages((prev) => new Set([...prev, image.id]));
+      upgradeIdxRef.current++;
+      runUpgradeQueue(images);
+    };
+    tempImg.onerror = () => {
+      upgradeIdxRef.current++;
+      runUpgradeQueue(images);
+    };
+    tempImg.src = image.mediumUrl;
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
+    const delay = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
-    fetchPhotographyImages()
-      .then((imgs) => {
+    Promise.all([fetchPhotographyImages(), delay(800)])
+      .then(([imgs]) => {
         if (!cancelled) {
           setAllImages(imgs);
-          setVisibleCount(INITIAL_BATCH);
-          setLoading(false);
+          setLoadPhase("done");
+          runUpgradeQueue(imgs);
         }
       })
       .catch((err) => {
         if (!cancelled) {
-          setError(
-            err instanceof Error ? err.message : "Failed to load images"
-          );
-          setLoading(false);
+          setError(err instanceof Error ? err.message : "Failed to load images");
+          setLoadPhase("done");
         }
       });
 
     return () => {
       cancelled = true;
     };
-  }, []);
-
-  useEffect(() => {
-    if (loading || visibleCount >= allImages.length) return;
-
-    timerRef.current = setTimeout(() => {
-      setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, allImages.length));
-    }, BATCH_DELAY_MS);
-
-    return () => clearTimeout(timerRef.current);
-  }, [loading, visibleCount, allImages.length]);
+  }, [runUpgradeQueue]);
 
   const closeLightbox = useCallback(() => setSelectedImage(null), []);
 
@@ -63,11 +68,18 @@ export default function PhotographyPage() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [selectedImage, closeLightbox]);
 
-  if (loading) {
+  if (loadPhase !== "done") {
     return (
       <div className="photography-page">
         <h1>Photography</h1>
-        <p className="photography-loading">Loading photos...</p>
+        <div className="photo-loader">
+          <img
+            src="/tab-icon.svg"
+            alt=""
+            className="photo-loader-icon spinning"
+          />
+          <p className="photo-loader-text">Loading</p>
+        </div>
       </div>
     );
   }
@@ -90,8 +102,6 @@ export default function PhotographyPage() {
     );
   }
 
-  const visibleImages = allImages.slice(0, visibleCount);
-
   return (
     <div className="photography-page">
       <h1>Photography</h1>
@@ -100,15 +110,23 @@ export default function PhotographyPage() {
         className="photography-grid"
         columnClassName="photography-grid-column"
       >
-        {visibleImages.map((img) => (
-          <div
-            key={img.id}
-            className="photography-item"
-            onClick={() => setSelectedImage(img)}
-          >
-            <img src={img.thumbnailUrl} alt={img.name} loading="lazy" />
-          </div>
-        ))}
+        {allImages.map((img) => {
+          const upgraded = upgradedImages.has(img.id);
+          return (
+            <div
+              key={img.id}
+              className="photography-item"
+              onClick={() => setSelectedImage(img)}
+            >
+              <img
+                src={upgraded ? img.mediumUrl : img.thumbnailUrl}
+                alt={img.name}
+                loading="lazy"
+                className={upgraded ? "photo-upgraded" : "photo-thumb"}
+              />
+            </div>
+          );
+        })}
       </Masonry>
 
       {selectedImage && (

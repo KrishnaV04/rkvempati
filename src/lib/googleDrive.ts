@@ -3,6 +3,7 @@ export interface DriveImage {
   name: string;
   mimeType: string;
   thumbnailUrl: string;
+  mediumUrl: string;
   fullUrl: string;
 }
 
@@ -10,11 +11,15 @@ const FOLDER_ID = "1H0cZ8MO66NNCJKv9W2l5hW5cykDa6kId";
 const API_KEY = import.meta.env.VITE_GOOGLE_DRIVE_API_KEY;
 
 function buildThumbnailUrl(fileId: string): string {
-  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w50`;
+}
+
+function buildMediumUrl(fileId: string): string {
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w500`;
 }
 
 function buildFullUrl(fileId: string): string {
-  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w4000`;
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w3000`;
 }
 
 // Note: pageSize=100 is the max per request. If the folder grows beyond 100
@@ -43,6 +48,7 @@ export async function fetchPhotographyImages(): Promise<DriveImage[]> {
       name: f.name,
       mimeType: f.mimeType,
       thumbnailUrl: buildThumbnailUrl(f.id),
+      mediumUrl: buildMediumUrl(f.id),
       fullUrl: buildFullUrl(f.id),
     }));
 }
