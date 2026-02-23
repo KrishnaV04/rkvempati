@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { getProject } from "../lib/content";
+import { getProject, resolveImage } from "../lib/content";
 import MarkdownRenderer from "../components/MarkdownRenderer";
 
 function formatDate(dateStr: string): string {
@@ -25,6 +25,10 @@ export default function ProjectDetailPage() {
     );
   }
 
+  const iconUrl = project.frontmatter.icon
+    ? resolveImage(project.folder, project.frontmatter.icon)
+    : undefined;
+
   return (
     <div className="project-detail">
       <Link to="/projects" className="back-link">
@@ -32,12 +36,21 @@ export default function ProjectDetailPage() {
       </Link>
       <div className="project-header">
         <div className="project-header-left">
-          <h1>{project.frontmatter.title}</h1>
-          {project.frontmatter.date && (
-            <time className="project-date">
-              {formatDate(project.frontmatter.date)}
-            </time>
+          {iconUrl && (
+            <img
+              src={iconUrl}
+              alt={project.frontmatter.title}
+              className="project-header-icon"
+            />
           )}
+          <div>
+            <h1>{project.frontmatter.title}</h1>
+            {project.frontmatter.date && (
+              <time className="project-date">
+                {formatDate(project.frontmatter.date)}
+              </time>
+            )}
+          </div>
         </div>
         <div className="project-header-right">
           {project.frontmatter.link && (

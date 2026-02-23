@@ -5,6 +5,7 @@ export interface ProjectFrontmatter {
   title: string;
   summary?: string;
   image?: string;
+  icon?: string;
   link?: string;
   date?: string;
 }
@@ -54,7 +55,7 @@ function parseFrontmatter(raw: string): { attributes: Record<string, string>; bo
 const projectMdFiles = import.meta.glob('/src/data/projects/*/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 
 // Glob-import all images from the data folder
-const dataImages = import.meta.glob('/src/data/**/*.{png,jpg,jpeg,gif,webp,svg}', { eager: true, import: 'default' }) as Record<string, string>;
+const dataImages = import.meta.glob('/src/data/**/*.{png,jpg,jpeg,gif,webp,svg,ico}', { eager: true, import: 'default' }) as Record<string, string>;
 
 // Glob-import all markdown files from writing as raw strings
 const writingMdFiles = import.meta.glob('/src/data/writing/*/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
@@ -88,6 +89,7 @@ export function getProjects(): Project[] {
         title: attributes.title || slug,
         summary: attributes.summary,
         image: attributes.image,
+        icon: attributes.icon,
         link: attributes.link,
         date: attributes.date,
       },
