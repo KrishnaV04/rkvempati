@@ -1,6 +1,6 @@
 import { getHomeContent } from "../lib/content";
 import MarkdownRenderer from "../components/MarkdownRenderer";
-import Diglett from "../components/Diglett";
+// import Diglett from "../components/Diglett";
 
 export default function HomePage() {
   const { body, folder } = getHomeContent();
@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <MarkdownRenderer content={body} folder={folder} />
-      <Diglett />
+      {/* <Diglett /> */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import type { Components } from "react-markdown";
 import { resolveImage } from "../lib/content";
 
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function MarkdownRenderer({ content, folder }: Props) {
+  const stripped = content.replace(/<!--[\s\S]*?-->/g, "");
   const components: Components = {
     img: ({ src, alt, ...props }) => {
       let resolvedSrc = src;
@@ -21,8 +23,8 @@ export default function MarkdownRenderer({ content, folder }: Props) {
 
   return (
     <div className="markdown-body">
-      <Markdown remarkPlugins={[remarkGfm]} components={components}>
-        {content}
+      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={components}>
+        {stripped}
       </Markdown>
     </div>
   );
