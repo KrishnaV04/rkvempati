@@ -33,15 +33,3 @@ The current version expands on problem generation itself using a full agentic wo
 5. **LaTeX Configuration** — The LLM provides parameters to the LaTeX engine (columns, rows, spacing, margins, solution space, etc.)
 6. **Render & Store** — LaTeX is rendered to PDF and stored in [Supabase](https://supabase.com/)
 
-### Agentic Pipeline
-
-```mermaid
-flowchart TD
-    A[User Prompt] --> B[Similarity Search\nPinecone VectorDB]
-    B --> C[Generate Problems\nGemini 2.5 Flash]
-    C --> D[Generate Solutions]
-    D --> E[Verify Solutions]
-    E --> F[Configure LaTeX Engine]
-    F --> G[Render LaTeX]
-    G --> H[Store PDF\nSupabase]
-```
