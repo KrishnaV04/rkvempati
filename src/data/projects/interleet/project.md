@@ -1,6 +1,6 @@
 ---
 title: "Interleet"
-summary: "Interactive visualizations for LeetCode problems so you can see solutions, not just read them."
+summary: "Interactive visualizations for LeetCode problem."
 link: "https://interleet.rkvempati.com/"
 icon: "image.svg"
 date: "2025-12-01"
