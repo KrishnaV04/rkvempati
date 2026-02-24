@@ -1,0 +1,1 @@
+import{Kn as e}from"./index-CK0itzlI.js";var t=class{constructor(e){this.init=e,this.records=this.init()}static#e=e(this,`ImperativeState`);reset(){this.records=this.init()}};export{t};
