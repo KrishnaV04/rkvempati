@@ -6,7 +6,7 @@ I am currently an AI Engineer at [Cornerstone](https://www.cornerstoneondemand.c
 
 I also like optimization problems. Currently I am researching real-time batch matching for bipartite graphs with novel methods like [Reinforcement Learning](https://arxiv.org/html/2503.13200#:~:text=Reinforcement%20Learning%20%28RL%29,%20a,to%20balance%20efficiency%20and%20responsiveness.).
 
-I graduated Fall 2025 with a degree in Computer Science and minor in Statistics from [UC Irvine](https://uci.edu/). While **academics** are one thing, university environments provide excellent exposure to all sorts of opportunities: from research initatives to joining clubs or sports, to name a few.
+I graduated Fall 2025 with a degree in Computer Science and minor in Statistics from [UC Irvine](https://uci.edu/). While **academics** are one thing, I find university environments provide excellent exposure to all sorts of opportunities: from research initatives to meeting like minded people to name a few.
 
 Check out some of my [projects](http://rkvempati.com/projects), [writings](https://rkvempati.com/writing), or [photography](https://rkvempati.com/photography).
 <br>

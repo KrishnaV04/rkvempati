@@ -1,0 +1,35 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ocean base -->
+  <circle cx="100" cy="100" r="90" fill="#1a6fa8"/>
+
+  <!-- Continents -->
+  <!-- North America -->
+  <path d="M55 55 Q45 65 48 80 Q52 90 60 95 Q70 85 75 70 Q78 60 70 52 Z" fill="#4a9e5c"/>
+  <!-- South America -->
+  <path d="M65 105 Q58 115 60 130 Q65 148 75 150 Q82 145 80 130 Q78 115 72 105 Z" fill="#4a9e5c"/>
+  <!-- Europe / Africa -->
+  <path d="M105 50 Q98 58 100 70 Q104 65 112 63 Q118 58 115 50 Z" fill="#4a9e5c"/>
+  <path d="M100 78 Q94 88 96 105 Q100 125 108 138 Q118 135 120 118 Q122 100 118 85 Q112 75 100 78 Z" fill="#4a9e5c"/>
+  <!-- Asia -->
+  <path d="M115 48 Q125 44 140 50 Q155 58 158 72 Q155 82 145 85 Q132 88 122 80 Q112 70 115 48 Z" fill="#4a9e5c"/>
+  <!-- Australia -->
+  <path d="M140 118 Q132 122 133 132 Q138 142 148 140 Q156 136 155 126 Q152 118 140 118 Z" fill="#4a9e5c"/>
+
+  <!-- Cloud wisps -->
+  <ellipse cx="75" cy="45" rx="18" ry="6" fill="white" opacity="0.6"/>
+  <ellipse cx="130" cy="100" rx="14" ry="5" fill="white" opacity="0.5"/>
+  <ellipse cx="60" cy="130" rx="12" ry="4" fill="white" opacity="0.55"/>
+  <ellipse cx="110" cy="155" rx="16" ry="5" fill="white" opacity="0.5"/>
+
+  <!-- Atmosphere glow -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#7ec8f7" stroke-width="6" opacity="0.3"/>
+
+  <!-- Subtle shading overlay -->
+  <circle cx="100" cy="100" r="90" fill="url(#shade)"/>
+  <defs>
+    <radialGradient id="shade" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="black" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+</svg>
