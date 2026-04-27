@@ -1,0 +1,39 @@
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="axarrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#9CA3AF"/>
+    </marker>
+    <marker id="garrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#EF4444"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="340" fill="#F9FAFB" rx="8"/>
+
+  <!-- Axes -->
+  <line x1="90" y1="295" x2="690" y2="295" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#axarrow)"/>
+  <line x1="90" y1="295" x2="90"  y2="40"  stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#axarrow)"/>
+
+  <!-- Axis labels -->
+  <text x="390" y="320" text-anchor="middle" fill="#6B7280" font-size="13">Weight Value</text>
+  <text x="30"  y="168" text-anchor="middle" fill="#6B7280" font-size="13" transform="rotate(-90 30 168)">Loss</text>
+
+  <!-- Parabola: y_px = 285 - x^2 * 32, x_px = 390 + x*100, x in [-2.5, 2.5] -->
+  <polyline
+    points="140,85 190,157 240,213 290,253 340,277 390,285 440,277 490,253 540,213 590,157 640,85"
+    fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Minimum marker -->
+  <circle cx="390" cy="285" r="5" fill="#10B981"/>
+  <line x1="390" y1="285" x2="390" y2="295" stroke="#10B981" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="390" y="310" text-anchor="middle" fill="#10B981" font-size="11" font-weight="bold">minimum</text>
+
+  <!-- Ball on slope (at x=1.5 → x_px=540, y_px=213) -->
+  <circle cx="540" cy="213" r="12" fill="#EF4444" stroke="white" stroke-width="2.5"/>
+
+  <!-- Dotted vertical drop -->
+  <line x1="540" y1="225" x2="540" y2="295" stroke="#EF4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+
+  <!-- Gradient descent arrow toward minimum -->
+  <line x1="533" y1="217" x2="476" y2="244" stroke="#EF4444" stroke-width="2" marker-end="url(#garrow)"/>
+</svg>

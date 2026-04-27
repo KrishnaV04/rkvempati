@@ -1,0 +1,62 @@
+<svg viewBox="0 0 760 345" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
+  <rect width="760" height="345" fill="#F9FAFB" rx="8"/>
+
+  <!-- Connection lines (red, suggesting backward flow) -->
+  <g stroke="#FECACA" stroke-width="1.5">
+    <line x1="390" y1="100" x2="100" y2="100"/>
+    <line x1="390" y1="100" x2="100" y2="190"/>
+    <line x1="390" y1="100" x2="100" y2="280"/>
+    <line x1="390" y1="190" x2="100" y2="100"/>
+    <line x1="390" y1="190" x2="100" y2="190"/>
+    <line x1="390" y1="190" x2="100" y2="280"/>
+    <line x1="390" y1="280" x2="100" y2="100"/>
+    <line x1="390" y1="280" x2="100" y2="190"/>
+    <line x1="390" y1="280" x2="100" y2="280"/>
+    <line x1="660" y1="145" x2="390" y2="100"/>
+    <line x1="660" y1="145" x2="390" y2="190"/>
+    <line x1="660" y1="145" x2="390" y2="280"/>
+    <line x1="660" y1="235" x2="390" y2="100"/>
+    <line x1="660" y1="235" x2="390" y2="190"/>
+    <line x1="660" y1="235" x2="390" y2="280"/>
+  </g>
+
+  <!-- Input nodes (faded — receiving gradients) -->
+  <g fill="#3B82F6" stroke="#1D4ED8" stroke-width="2" opacity="0.4">
+    <circle cx="100" cy="100" r="26"/>
+    <circle cx="100" cy="190" r="26"/>
+    <circle cx="100" cy="280" r="26"/>
+  </g>
+
+  <!-- Hidden nodes (showing gradient symbol) -->
+  <g fill="#8B5CF6" stroke="#6D28D9" stroke-width="2">
+    <circle cx="390" cy="100" r="26"/>
+    <circle cx="390" cy="190" r="26"/>
+    <circle cx="390" cy="280" r="26"/>
+  </g>
+  <g fill="white" font-size="10">
+    <text x="390" y="96"  text-anchor="middle" dominant-baseline="central">∂L</text>
+    <text x="390" y="107" text-anchor="middle" dominant-baseline="central">∂w</text>
+    <text x="390" y="186" text-anchor="middle" dominant-baseline="central">∂L</text>
+    <text x="390" y="197" text-anchor="middle" dominant-baseline="central">∂w</text>
+    <text x="390" y="276" text-anchor="middle" dominant-baseline="central">∂L</text>
+    <text x="390" y="287" text-anchor="middle" dominant-baseline="central">∂w</text>
+  </g>
+
+  <!-- Output nodes (loss originates here) -->
+  <g fill="#EF4444" stroke="#B91C1C" stroke-width="2">
+    <circle cx="660" cy="145" r="26"/>
+    <circle cx="660" cy="235" r="26"/>
+  </g>
+  <g fill="white" font-weight="bold" font-size="11">
+    <text x="660" y="145" text-anchor="middle" dominant-baseline="central">Loss</text>
+    <text x="660" y="235" text-anchor="middle" dominant-baseline="central">Loss</text>
+  </g>
+
+  <!-- Layer labels -->
+  <text x="100" y="332" text-anchor="middle" fill="#9CA3AF" font-size="11">Input</text>
+  <text x="390" y="332" text-anchor="middle" fill="#9CA3AF" font-size="11">Hidden</text>
+  <text x="660" y="290" text-anchor="middle" fill="#9CA3AF" font-size="11">Output</text>
+
+  <!-- Direction label -->
+  <text x="380" y="38" text-anchor="middle" fill="#EF4444" font-size="12" font-weight="bold">←  Backpropagation</text>
+</svg>

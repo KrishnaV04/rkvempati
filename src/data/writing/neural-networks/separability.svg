@@ -1,0 +1,84 @@
+<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
+  <rect width="760" height="280" fill="#F9FAFB" rx="8"/>
+
+  <!-- Panel divider -->
+  <line x1="380" y1="20" x2="380" y2="260" stroke="#E5E7EB" stroke-width="1.5"/>
+
+  <!-- ── LEFT PANEL: Linearly Separable ── -->
+  <text x="190" y="38" text-anchor="middle" fill="#1F2937" font-weight="bold" font-size="14">Linearly Separable</text>
+
+  <!-- Panel border -->
+  <rect x="30" y="48" width="320" height="200" fill="white" stroke="#E5E7EB" stroke-width="1" rx="4"/>
+
+  <!-- Separating line -->
+  <line x1="50" y1="120" x2="330" y2="228" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- Blue dots (class A — upper-right region) -->
+  <g fill="#3B82F6">
+    <circle cx="230" cy="68" r="7"/>
+    <circle cx="265" cy="82" r="7"/>
+    <circle cx="210" cy="100" r="7"/>
+    <circle cx="290" cy="95" r="7"/>
+    <circle cx="248" cy="118" r="7"/>
+    <circle cx="310" cy="115" r="7"/>
+  </g>
+
+  <!-- Orange dots (class B — lower-left region) -->
+  <g fill="#F59E0B">
+    <circle cx="68" cy="170" r="7"/>
+    <circle cx="100" cy="190" r="7"/>
+    <circle cx="60" cy="215" r="7"/>
+    <circle cx="130" cy="210" r="7"/>
+    <circle cx="90" cy="235" r="7"/>
+    <circle cx="155" cy="235" r="7"/>
+  </g>
+
+  <!-- Legend left panel -->
+  <circle cx="50" cy="262" r="5" fill="#3B82F6"/>
+  <text x="60" y="266" fill="#6B7280" font-size="11">Class A</text>
+  <circle cx="110" cy="262" r="5" fill="#F59E0B"/>
+  <text x="120" y="266" fill="#6B7280" font-size="11">Class B</text>
+  <line x1="172" y1="262" x2="192" y2="262" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="198" y="266" fill="#6B7280" font-size="11">boundary</text>
+
+  <!-- ── RIGHT PANEL: Non-linearly Separable ── -->
+  <text x="570" y="38" text-anchor="middle" fill="#1F2937" font-weight="bold" font-size="14">Non-linearly Separable</text>
+
+  <!-- Panel border -->
+  <rect x="410" y="48" width="320" height="200" fill="white" stroke="#E5E7EB" stroke-width="1" rx="4"/>
+
+  <!-- Curved (circular) decision boundary -->
+  <ellipse cx="570" cy="148" rx="68" ry="60" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- Blue dots (inner cluster) -->
+  <g fill="#3B82F6">
+    <circle cx="558" cy="122" r="7"/>
+    <circle cx="585" cy="128" r="7"/>
+    <circle cx="596" cy="150" r="7"/>
+    <circle cx="580" cy="172" r="7"/>
+    <circle cx="553" cy="174" r="7"/>
+    <circle cx="540" cy="152" r="7"/>
+  </g>
+
+  <!-- Orange dots (outer ring) -->
+  <g fill="#F59E0B">
+    <circle cx="490" cy="100" r="7"/>
+    <circle cx="540" cy="72" r="7"/>
+    <circle cx="598" cy="70" r="7"/>
+    <circle cx="645" cy="100" r="7"/>
+    <circle cx="658" cy="150" r="7"/>
+    <circle cx="638" cy="200" r="7"/>
+    <circle cx="592" cy="225" r="7"/>
+    <circle cx="538" cy="222" r="7"/>
+    <circle cx="492" cy="198" r="7"/>
+    <circle cx="477" cy="148" r="7"/>
+  </g>
+
+  <!-- Legend right panel -->
+  <circle cx="430" cy="262" r="5" fill="#3B82F6"/>
+  <text x="440" y="266" fill="#6B7280" font-size="11">Class A</text>
+  <circle cx="490" cy="262" r="5" fill="#F59E0B"/>
+  <text x="500" y="266" fill="#6B7280" font-size="11">Class B</text>
+  <ellipse cx="573" cy="262" rx="18" ry="6" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="596" y="266" fill="#6B7280" font-size="11">boundary</text>
+</svg>
