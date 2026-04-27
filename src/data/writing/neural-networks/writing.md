@@ -1,10 +1,10 @@
 ---
 title: "Neural Networks: The Building Blocks of Modern AI"
-summary: "A ground-up walkthrough of how neural networks work — from single perceptrons to forward and backpropagation — building the intuition needed to understand modern AI models."
+summary: "A ground-up walkthrough of how neural networks work with intuition."
 date: "2025-05-16"
 ---
 
-Neural networks sit at the core of nearly every major advancement in artificial intelligence over the last decade. The goal of this article is to build a complete and intuitive understanding of how they work — from a single artificial neuron to the training process behind deep learning. We will start from the basics and work our way up step by step. A basic familiarity with vectors and derivatives will help, but the focus here is intuition, not formulas.
+Neural networks sit at the core of nearly every major advancement in artificial intelligence over the last decade. The goal of this article is to build a complete and intuitive understanding of how they work from a single artificial neuron to the training process behind deep learning. We will start from the basics and work our way up step by step. A basic familiarity with vectors and derivatives will help, but the focus here is intuition, not formulas.
 
 ## Why Neural Networks?
 
@@ -14,10 +14,10 @@ The world is full of problems that are easy for humans but hard to define with e
 
 This idea turns out to be remarkably general. Neural networks form the backbone of:
 
-- **Computer vision (CV) models** — classifying images, detecting objects, and generating new visuals.
-- **Natural language processing** — translation, summarization, and language models.
-- **Transformers** — the architecture behind GPT and BERT, which has redefined what is possible in AI.
-- **Generative models** — systems that synthesize new data, from realistic images to music.
+- **Computer vision (CV) models** - classifying images, detecting objects, and generating new visuals.
+- **Natural language processing** - translation, summarization, and language models.
+- **Transformers** - the architecture behind GPT and BERT, which has redefined what is possible in AI.
+- **Generative models** - systems that synthesize new data, from realistic images to music.
 
 The thread connecting all of these is the same underlying structure: layers of interconnected artificial neurons. Let us start there.
 
@@ -42,12 +42,12 @@ output = activation(z)
 
 Let us break this down:
 
-- **Inputs (x):** The raw data — pixel values, sensor readings, word embeddings, etc.
+- **Inputs (x):** The raw data pixel values, sensor readings, word embeddings, etc.
 - **Weights (w):** How much influence each input has. A high weight amplifies its input; a weight near zero ignores it. These are the values the network _learns_.
 - **Bias (b):** A constant that shifts the output, giving the model more flexibility.
 - **Activation function:** Applied to the weighted sum `z` to introduce non-linearity.
 
-The weights and bias are the parameters the network adjusts during training. The activation function, however, is a design choice — and it is a critical one.
+The weights and bias are the parameters the network adjusts during training. The activation function, however, is a design choice and it is a critical one.
 
 ### Why Non-Linearity Matters
 
@@ -59,7 +59,7 @@ Take a moment to think about what that means. If the world were linear, this wou
 
 ![Two scatter plots: left shows two classes separated by a straight line (linearly separable), right shows two classes requiring a curved boundary (non-linearly separable)](./separability.svg)
 
-The left panel is a case where a straight line suffices. The right panel cannot be solved with any straight line — the boundary must curve. The activation function introduces those curves, thresholds, and bends that allow the network to represent complex boundaries.
+The left panel is a case where a straight line suffices. The right panel cannot be solved with any straight line the boundary must curve. The activation function introduces those curves, thresholds, and bends that allow the network to represent complex boundaries.
 
 Some common choices include:
 
@@ -82,13 +82,13 @@ A neural network organizes perceptrons into **layers**:
 
 - **Input layer:** Receives the raw data. Each node corresponds to one feature of the input.
 - **Hidden layers:** The intermediate layers between input and output. This is where most of the learning happens. A network with many hidden layers is called a **deep** network.
-- **Output layer:** Produces the final result — a class label, a numerical value, or a probability distribution depending on the task.
+- **Output layer:** Produces the final result: a class label, a numerical value, or a probability distribution depending on the task.
 
 **Figure 4:**
 
 ![Fully connected neural network with an input layer of 3 nodes, two hidden layers of 4 nodes each, and an output layer of 2 nodes, with every node connected to every node in the next layer](./network.svg)
 
-Notice that every node in one layer connects to every node in the next. We call this a **fully connected** or **dense** layer. The number of layers and the number of nodes per layer are **hyperparameters** — design choices made before training begins, not values the network learns on its own.
+Notice that every node in one layer connects to every node in the next. We call this a **fully connected** or **dense** layer. The number of layers and the number of nodes per layer are **hyperparameters** design choices made before training begins, not values the network learns on its own.
 
 ### Forward Propagation
 
@@ -104,7 +104,7 @@ At the end of a forward pass, we have a prediction. Now the question is: how wro
 
 ### The Loss Function
 
-After a forward pass, we need a way to measure error. This is the role of the **loss function**. It takes the network's prediction and the true answer, and returns a single number representing how wrong the prediction was — lower is better.
+After a forward pass, we need a way to measure error. This is the role of the **loss function**. It takes the network's prediction and the true answer, and returns a single number representing how wrong the prediction was lower is better.
 
 Common choices include:
 
@@ -126,9 +126,9 @@ Before training begins, we must make several design choices that the network its
 
 Before training begins, we must also assign initial values to the weights. This might seem like a minor detail, but it is not.
 
-If all weights are initialized to the same value — say, zero — every neuron in a layer computes identical outputs and receives identical gradient updates. The network loses the ability to differentiate its neurons and effectively behaves as a single one. This is called **symmetry breaking failure**.
+If all weights are initialized to the same value say, zero every neuron in a layer computes identical outputs and receives identical gradient updates. The network loses the ability to differentiate its neurons and effectively behaves as a single one. This is called **symmetry breaking failure**.
 
-The other risk is scale. If the initial weights are too large, the weighted sums `z` become very large, pushing activations into regions where gradients are nearly zero. The gradient then essentially vanishes as it travels backward through the network — this is the **vanishing gradient problem**. The reverse can also happen: gradients can grow exponentially as they flow backward, causing **exploding gradients** and making training unstable.
+The other risk is scale. If the initial weights are too large, the weighted sums `z` become very large, pushing activations into regions where gradients are nearly zero. The gradient then essentially vanishes as it travels backward through the network this is the **vanishing gradient problem**. The reverse can also happen: gradients can grow exponentially as they flow backward, causing **exploding gradients** and making training unstable.
 
 Good initialization keeps activations and gradients in a manageable range. Two common strategies are:
 
@@ -161,7 +161,7 @@ We subtract because we want to move in the direction that reduces the loss. Figu
 
 In practice, we do not compute the gradient over the entire dataset at once. Instead we use **mini-batch gradient descent**, processing a small random subset of training examples at a time before updating the weights. This introduces some noise, but that noise can help the network escape poor solutions.
 
-This full cycle — forward pass, compute loss, backpropagate gradients, update weights — repeats for many iterations until the loss converges.
+This full cycle: forward pass, compute loss, backpropagate gradients, update weights, repeats for many iterations until the loss converges.
 
 ## Different Types of Neural Networks
 
@@ -169,11 +169,11 @@ Understanding the feedforward network we built gives you the tools to reason abo
 
 ### Convolutional Neural Networks (CNNs)
 
-Designed for grid-structured data like images. Instead of connecting every input to every neuron, convolutional layers apply small learnable filters that slide across the input and detect local patterns — edges, textures, shapes. Deeper layers detect increasingly abstract features. CNNs are the dominant architecture in computer vision.
+Designed for grid-structured data like images. Instead of connecting every input to every neuron, convolutional layers apply small learnable filters that slide across the input and detect local patterns; edges, textures, shapes. Deeper layers detect increasingly abstract features. CNNs are the dominant architecture in computer vision.
 
 ### Recurrent Neural Networks (RNNs)
 
-Designed for sequential data like text or time series. Unlike feedforward networks, RNNs have connections that loop back — the output from one step is fed in as input to the next, giving the network a form of memory. RNNs struggle with long sequences due to vanishing gradients, which led to more sophisticated variants like LSTMs and GRUs.
+Designed for sequential data like text or time series. Unlike feedforward networks, RNNs have connections that loop back, the output from one step is fed in as input to the next, giving the network a form of memory. RNNs struggle with long sequences due to vanishing gradients, which led to more sophisticated variants like LSTMs and GRUs.
 
 ### Transformers
 
@@ -181,8 +181,8 @@ The architecture that reshaped natural language processing, and increasingly vis
 
 ### Generative Models
 
-Networks designed not just to classify, but to _create_. **Generative Adversarial Networks (GANs)** pit a generator against a discriminator in a competitive training loop, pushing both to improve until the generator produces realistic data. **Diffusion models**, which power tools like Stable Diffusion, learn to reverse a gradual noise-addition process — eventually generating high-quality outputs from pure noise. These too deserve a separate deep dive.
+Networks designed not just to classify, but to _create_. **Generative Adversarial Networks (GANs)** pit a generator against a discriminator in a competitive training loop, pushing both to improve until the generator produces realistic data. **Diffusion models**, which power tools like Stable Diffusion, learn to reverse a gradual noise-addition process, eventually generating high-quality outputs from pure noise. These too deserve a separate deep dive.
 
 ---
 
-The feedforward network we built in this article is the foundation for all of the above. Each architecture takes that foundation and modifies it to exploit structure in a particular type of data. Once you understand how weights are learned through forward propagation, backpropagation, and gradient descent, the next natural question is: what assumptions can we bake into the structure of the network to make learning more efficient? That is the question driving the field forward.
+The simple feedforward network we built in this article is the foundation for all of the above. Each architecture takes that foundation and modifies it to exploit structure in a particular type of data. Once you understand how weights are learned through forward propagation, backpropagation, and gradient descent, the next natural question is: what assumptions can we bake into the structure of the network to make learning more efficient? This train of thought is what helped develop such architectures.
