@@ -1,0 +1,94 @@
+<svg viewBox="0 0 760 390" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
+  <rect width="760" height="390" fill="#F9FAFB" rx="8"/>
+
+  <!-- Layer header labels -->
+  <text x="80"  y="38" text-anchor="middle" fill="#6B7280" font-size="12">Input</text>
+  <text x="80"  y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer</text>
+  <text x="267" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Hidden</text>
+  <text x="267" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer 1</text>
+  <text x="493" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Hidden</text>
+  <text x="493" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer 2</text>
+  <text x="680" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Output</text>
+  <text x="680" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer</text>
+
+  <!-- Connection lines -->
+  <g stroke="#D1D5DB" stroke-width="1" opacity="0.8">
+    <!-- Input → H1 -->
+    <line x1="80" y1="105" x2="267" y2="75"/>
+    <line x1="80" y1="105" x2="267" y2="168"/>
+    <line x1="80" y1="105" x2="267" y2="245"/>
+    <line x1="80" y1="105" x2="267" y2="335"/>
+    <line x1="80" y1="205" x2="267" y2="75"/>
+    <line x1="80" y1="205" x2="267" y2="168"/>
+    <line x1="80" y1="205" x2="267" y2="245"/>
+    <line x1="80" y1="205" x2="267" y2="335"/>
+    <line x1="80" y1="305" x2="267" y2="75"/>
+    <line x1="80" y1="305" x2="267" y2="168"/>
+    <line x1="80" y1="305" x2="267" y2="245"/>
+    <line x1="80" y1="305" x2="267" y2="335"/>
+    <!-- H1 → H2 -->
+    <line x1="267" y1="75"  x2="493" y2="75"/>
+    <line x1="267" y1="75"  x2="493" y2="168"/>
+    <line x1="267" y1="75"  x2="493" y2="245"/>
+    <line x1="267" y1="75"  x2="493" y2="335"/>
+    <line x1="267" y1="168" x2="493" y2="75"/>
+    <line x1="267" y1="168" x2="493" y2="168"/>
+    <line x1="267" y1="168" x2="493" y2="245"/>
+    <line x1="267" y1="168" x2="493" y2="335"/>
+    <line x1="267" y1="245" x2="493" y2="75"/>
+    <line x1="267" y1="245" x2="493" y2="168"/>
+    <line x1="267" y1="245" x2="493" y2="245"/>
+    <line x1="267" y1="245" x2="493" y2="335"/>
+    <line x1="267" y1="335" x2="493" y2="75"/>
+    <line x1="267" y1="335" x2="493" y2="168"/>
+    <line x1="267" y1="335" x2="493" y2="245"/>
+    <line x1="267" y1="335" x2="493" y2="335"/>
+    <!-- H2 → Output -->
+    <line x1="493" y1="75"  x2="680" y2="165"/>
+    <line x1="493" y1="75"  x2="680" y2="245"/>
+    <line x1="493" y1="168" x2="680" y2="165"/>
+    <line x1="493" y1="168" x2="680" y2="245"/>
+    <line x1="493" y1="245" x2="680" y2="165"/>
+    <line x1="493" y1="245" x2="680" y2="245"/>
+    <line x1="493" y1="335" x2="680" y2="165"/>
+    <line x1="493" y1="335" x2="680" y2="245"/>
+  </g>
+
+  <!-- Input nodes -->
+  <g fill="#3B82F6" stroke="#1D4ED8" stroke-width="2">
+    <circle cx="80" cy="105" r="24"/>
+    <circle cx="80" cy="205" r="24"/>
+    <circle cx="80" cy="305" r="24"/>
+  </g>
+  <g fill="white" font-weight="bold" font-size="12">
+    <text x="80" y="105" text-anchor="middle" dominant-baseline="central">x₁</text>
+    <text x="80" y="205" text-anchor="middle" dominant-baseline="central">x₂</text>
+    <text x="80" y="305" text-anchor="middle" dominant-baseline="central">x₃</text>
+  </g>
+
+  <!-- H1 nodes -->
+  <g fill="#8B5CF6" stroke="#6D28D9" stroke-width="2">
+    <circle cx="267" cy="75"  r="24"/>
+    <circle cx="267" cy="168" r="24"/>
+    <circle cx="267" cy="245" r="24"/>
+    <circle cx="267" cy="335" r="24"/>
+  </g>
+
+  <!-- H2 nodes -->
+  <g fill="#8B5CF6" stroke="#6D28D9" stroke-width="2">
+    <circle cx="493" cy="75"  r="24"/>
+    <circle cx="493" cy="168" r="24"/>
+    <circle cx="493" cy="245" r="24"/>
+    <circle cx="493" cy="335" r="24"/>
+  </g>
+
+  <!-- Output nodes -->
+  <g fill="#10B981" stroke="#065F46" stroke-width="2">
+    <circle cx="680" cy="165" r="24"/>
+    <circle cx="680" cy="245" r="24"/>
+  </g>
+  <g fill="white" font-weight="bold" font-size="12">
+    <text x="680" y="165" text-anchor="middle" dominant-baseline="central">y₁</text>
+    <text x="680" y="245" text-anchor="middle" dominant-baseline="central">y₂</text>
+  </g>
+</svg>
