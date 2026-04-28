@@ -1,0 +1,77 @@
+<svg viewBox="0 0 760 265" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
+
+  <!-- Title -->
+  <text x="380" y="20" text-anchor="middle" fill="#F3F4F6" font-size="13" font-weight="bold">Bayesian Updating: Prior and Likelihood Combine into a Posterior</text>
+
+  <!-- ── PANEL 1: Prior (Uniform) ── -->
+  <rect x="28" y="30" width="200" height="170" fill="none" stroke="#374151" rx="4"/>
+  <!-- Axes -->
+  <line x1="43" y1="200" x2="213" y2="200" stroke="#4B5563" stroke-width="1"/>
+  <line x1="43" y1="40"  x2="43"  y2="200" stroke="#4B5563" stroke-width="1"/>
+  <!-- Uniform fill rectangle -->
+  <rect x="43" y="55" width="170" height="145" fill="#3B82F6" fill-opacity="0.18"/>
+  <!-- Uniform top and side edges -->
+  <line x1="43"  y1="55" x2="213" y2="55"  stroke="#3B82F6" stroke-width="2.5"/>
+  <line x1="43"  y1="55" x2="43"  y2="200" stroke="#3B82F6" stroke-width="2.5"/>
+  <line x1="213" y1="55" x2="213" y2="200" stroke="#3B82F6" stroke-width="2.5"/>
+  <!-- X-axis ticks -->
+  <line x1="43"  y1="200" x2="43"  y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="128" y1="200" x2="128" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="213" y1="200" x2="213" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <text x="43"  y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0</text>
+  <text x="128" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0.5</text>
+  <text x="213" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">1</text>
+  <!-- Panel label -->
+  <text x="128" y="236" text-anchor="middle" fill="#F3F4F6" font-weight="bold" font-size="13">Prior</text>
+  <text x="128" y="251" text-anchor="middle" fill="#9CA3AF" font-size="11">Uniform(0, 1)</text>
+
+  <!-- Operator × -->
+  <text x="254" y="121" text-anchor="middle" fill="#9CA3AF" font-size="20" font-weight="bold">×</text>
+
+  <!-- ── PANEL 2: Likelihood ── -->
+  <rect x="280" y="30" width="200" height="170" fill="none" stroke="#374151" rx="4"/>
+  <!-- Axes -->
+  <line x1="295" y1="200" x2="465" y2="200" stroke="#4B5563" stroke-width="1"/>
+  <line x1="295" y1="40"  x2="295" y2="200" stroke="#4B5563" stroke-width="1"/>
+  <!-- Fill under likelihood curve -->
+  <polygon points="295,200 346,200 355,199 363,196 372,187 380,169 388,138 397,96 406,57 414,40 423,59 431,109 440,162 448,193 457,200 465,200"
+           fill="#10B981" fill-opacity="0.20"/>
+  <!-- Likelihood curve -->
+  <polyline points="295,200 346,200 355,199 363,196 372,187 380,169 388,138 397,96 406,57 414,40 423,59 431,109 440,162 448,193 457,200 465,200"
+            fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- X-axis ticks -->
+  <line x1="295" y1="200" x2="295" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="380" y1="200" x2="380" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="465" y1="200" x2="465" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <text x="295" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0</text>
+  <text x="380" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0.5</text>
+  <text x="465" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">1</text>
+  <!-- Panel label -->
+  <text x="380" y="236" text-anchor="middle" fill="#F3F4F6" font-weight="bold" font-size="13">Likelihood</text>
+  <text x="380" y="251" text-anchor="middle" fill="#9CA3AF" font-size="11">14 heads in 20 flips</text>
+
+  <!-- Operator = -->
+  <text x="506" y="122" text-anchor="middle" fill="#9CA3AF" font-size="20" font-weight="bold">=</text>
+
+  <!-- ── PANEL 3: Posterior ── -->
+  <rect x="532" y="30" width="200" height="170" fill="none" stroke="#374151" rx="4"/>
+  <!-- Axes -->
+  <line x1="547" y1="200" x2="717" y2="200" stroke="#4B5563" stroke-width="1"/>
+  <line x1="547" y1="40"  x2="547" y2="200" stroke="#4B5563" stroke-width="1"/>
+  <!-- Fill under posterior curve -->
+  <polygon points="547,200 598,200 607,199 615,196 624,187 632,169 641,138 649,96 658,57 666,40 675,59 683,109 692,162 700,193 709,200 717,200"
+           fill="#6366F1" fill-opacity="0.25"/>
+  <!-- Posterior curve -->
+  <polyline points="547,200 598,200 607,199 615,196 624,187 632,169 641,138 649,96 658,57 666,40 675,59 683,109 692,162 700,193 709,200 717,200"
+            fill="none" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- X-axis ticks -->
+  <line x1="547" y1="200" x2="547" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="632" y1="200" x2="632" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <line x1="717" y1="200" x2="717" y2="206" stroke="#6B7280" stroke-width="1"/>
+  <text x="547" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0</text>
+  <text x="632" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">0.5</text>
+  <text x="717" y="216" text-anchor="middle" fill="#9CA3AF" font-size="10">1</text>
+  <!-- Panel label -->
+  <text x="632" y="236" text-anchor="middle" fill="#F3F4F6" font-weight="bold" font-size="13">Posterior</text>
+  <text x="632" y="251" text-anchor="middle" fill="#9CA3AF" font-size="11">Beta(15, 7)</text>
+</svg>
