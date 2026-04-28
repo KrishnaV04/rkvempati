@@ -4,6 +4,7 @@ summary: "Personalized math worksheets generator."
 icon: "image.ico"
 link: "https://llmath.org/"
 date: "2025-01-11"
+featured: "true"
 ---
 
 ## Overview

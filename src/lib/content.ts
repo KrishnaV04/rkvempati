@@ -8,6 +8,7 @@ export interface ProjectFrontmatter {
   icon?: string;
   link?: string;
   date?: string;
+  featured?: boolean;
 }
 
 export interface Project {
@@ -92,14 +93,17 @@ export function getProjects(): Project[] {
         icon: attributes.icon,
         link: attributes.link,
         date: attributes.date,
+        featured: attributes.featured === 'true',
       },
       body,
       folder,
     });
   }
 
-  // Sort by date descending (most recent first)
+  // Featured projects first, then by date descending
   projects.sort((a, b) => {
+    if (a.frontmatter.featured && !b.frontmatter.featured) return -1;
+    if (!a.frontmatter.featured && b.frontmatter.featured) return 1;
     if (!a.frontmatter.date) return 1;
     if (!b.frontmatter.date) return -1;
     return b.frontmatter.date.localeCompare(a.frontmatter.date);
