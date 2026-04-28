@@ -1,18 +1,17 @@
 <svg viewBox="0 0 760 390" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
-  <rect width="760" height="390" fill="#F9FAFB" rx="8"/>
 
   <!-- Layer header labels -->
-  <text x="80"  y="38" text-anchor="middle" fill="#6B7280" font-size="12">Input</text>
-  <text x="80"  y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer</text>
-  <text x="267" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Hidden</text>
-  <text x="267" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer 1</text>
-  <text x="493" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Hidden</text>
-  <text x="493" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer 2</text>
-  <text x="680" y="38" text-anchor="middle" fill="#6B7280" font-size="12">Output</text>
-  <text x="680" y="52" text-anchor="middle" fill="#6B7280" font-size="12">Layer</text>
+  <text x="80"  y="38" text-anchor="middle" fill="#9CA3AF" font-size="12">Input</text>
+  <text x="80"  y="52" text-anchor="middle" fill="#9CA3AF" font-size="12">Layer</text>
+  <text x="267" y="38" text-anchor="middle" fill="#9CA3AF" font-size="12">Hidden</text>
+  <text x="267" y="52" text-anchor="middle" fill="#9CA3AF" font-size="12">Layer 1</text>
+  <text x="493" y="38" text-anchor="middle" fill="#9CA3AF" font-size="12">Hidden</text>
+  <text x="493" y="52" text-anchor="middle" fill="#9CA3AF" font-size="12">Layer 2</text>
+  <text x="680" y="38" text-anchor="middle" fill="#9CA3AF" font-size="12">Output</text>
+  <text x="680" y="52" text-anchor="middle" fill="#9CA3AF" font-size="12">Layer</text>
 
   <!-- Connection lines -->
-  <g stroke="#D1D5DB" stroke-width="1" opacity="0.8">
+  <g stroke="#374151" stroke-width="1" opacity="0.9">
     <!-- Input → H1 -->
     <line x1="80" y1="105" x2="267" y2="75"/>
     <line x1="80" y1="105" x2="267" y2="168"/>

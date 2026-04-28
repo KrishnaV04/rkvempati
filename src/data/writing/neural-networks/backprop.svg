@@ -1,5 +1,4 @@
 <svg viewBox="0 0 760 345" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" font-size="13">
-  <rect width="760" height="345" fill="#F9FAFB" rx="8"/>
 
   <!-- Connection lines (red, suggesting backward flow) -->
   <g stroke="#FECACA" stroke-width="1.5">
@@ -20,14 +19,14 @@
     <line x1="660" y1="235" x2="390" y2="280"/>
   </g>
 
-  <!-- Input nodes (faded — receiving gradients) -->
+  <!-- Input nodes (faded) -->
   <g fill="#3B82F6" stroke="#1D4ED8" stroke-width="2" opacity="0.4">
     <circle cx="100" cy="100" r="26"/>
     <circle cx="100" cy="190" r="26"/>
     <circle cx="100" cy="280" r="26"/>
   </g>
 
-  <!-- Hidden nodes (showing gradient symbol) -->
+  <!-- Hidden nodes -->
   <g fill="#8B5CF6" stroke="#6D28D9" stroke-width="2">
     <circle cx="390" cy="100" r="26"/>
     <circle cx="390" cy="190" r="26"/>
@@ -42,7 +41,7 @@
     <text x="390" y="287" text-anchor="middle" dominant-baseline="central">∂w</text>
   </g>
 
-  <!-- Output nodes (loss originates here) -->
+  <!-- Output nodes -->
   <g fill="#EF4444" stroke="#B91C1C" stroke-width="2">
     <circle cx="660" cy="145" r="26"/>
     <circle cx="660" cy="235" r="26"/>

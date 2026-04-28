@@ -1,7 +1,7 @@
 ---
 title: "Neural Networks: The Building Blocks of Modern AI"
 summary: "A ground-up walkthrough of how neural networks work with intuition."
-date: "2025-05-16"
+date: "2025-09-16"
 ---
 
 Neural networks sit at the core of nearly every major advancement in artificial intelligence over the last decade. The goal of this article is to build a complete and intuitive understanding of how they work from a single artificial neuron to the training process behind deep learning. We will start from the basics and work our way up step by step. A basic familiarity with vectors and derivatives will help, but the focus here is intuition, not formulas.
