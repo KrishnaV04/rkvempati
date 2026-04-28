@@ -1,0 +1,41 @@
+Out of all the millennium problems, P vs NP is probably the one that I understand the most. This is also why CS students sometimes encounter it in their undergraduate complexity theory courses just like I have. What makes this a million dollar question however is the difficulty in being able to prove it rigorously.
+
+In this text I want to provide you with a simplified explanation of the P vs NP problem. (for both curious readers and my future self that might forget this problem).
+
+Background
+
+When we look at problems in math, we usually think about having a question with inputs and “solving” it to provide an output. While the same exists in complexity theory, we will only be focusing on those problems that make a Yes or No decision, aka decision problems.
+
+For example a multiplication decision problem: Is 5 x 6 = 23? Which will have an answer as no. The inputs here will be {5, 6, 23} and output will be ‘No’. So we can essentially convert a normal math problem into a decision problem by simply including the answer variable in the input.
+
+In the early years of CS, computer scientists thought about separating problems into classes based on a variety of things. A trivial example is decision problems and non-decision problems. Within the class of decision problems we have the Polynomial Time (P) class and the Non-deterministic Polynomial Time (NP) class.
+
+Terminology
+
+Rigorously speaking, polynomial time: is the class of decision problems solvable by a deterministic Turing machine in O(nk). Non-determininistic Polynomial Time: is the class of decision problems solvable by a non-deterministic Turing machine in polynomial time.
+
+While Turing machines need their own page to explain about them with the exact nuances, below is a concise and sufficient explanation:
+
+“A Deterministic Turing Machine (DTM) follows a single, predetermined path for any input, where each step leads to exactly one next step. A Non-Deterministic Turing Machine (NTM) can branch into multiple possible next steps simultaneously, exploring many paths at once. Essentially, a DTM is like following a map, while an NTM can try all paths at the same time to find an answer.”
+
+Coming back to P and NP, an easy way to think about it is that if a problem can be solved in polynomial time it is in P, and if a problem can be verified in polynomial time it is in NP.
+
+Million Dollar Question
+
+The million dollar question is to create a strict proof to either prove/disprove that every problem that exists in NP also exists in P.
+
+Here are some things we know:
+
+1) Any problem that exists in P trivial also exists in NP, This is because we can always use the algorithm in P to help us verify whether a provided answer is correct. For example the following decision problem:
+
+Given a, b, c is a x b = c?
+
+This problem is in the P class, because using simple multiplication we can prove in O(n^2) time whether a x b = c. It is also in NP because we can verify a x b = c without actually needing anything (by just using the solution in P). Keep in mind if we needed something to verify then it would still be NP.
+
+2) If we know a problem in NP that is not in P, it doesn’t imply that we won’t find a solution to that problem that will be in P. For example primality testing also known as the PRIMES problem. For a long time computer scientists weren’t able to prove/disprove that PRIMES which is in NP is also in P. However in 2002, a group of researchers discovered an algorithm that can solve it in polynomial time. 
+
+3) There is a class of problems called NP-Complete which is a subset of the NP class. It is rigorously proven that NP-Complete problems are the hardest problems in the NP class, and that proving that any NP-Complete problem is in P will prove NP=P. However it is generally believed that NP is not equal to P, which is why we really can’t prove NP=P. Which means the real challenge is to prove that NP is not equal to P. 
+
+The NP vs P problem has key barriers to resolution: Relativization, Natural Proofs, Algebrization which make it very difficult to solve this problem with the ways that mathematicians and computer scientists used to solve many other proofs. This means a successful proof if it even exists will almost certainly involve discovering a new way of writing proofs. Either way one thing that is certain is that if you are the first to solve it in the known world then you will certainly and literally win a million dollars.
+
+
