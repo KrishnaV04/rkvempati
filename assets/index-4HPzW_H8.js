@@ -732,7 +732,7 @@ Data teams will leverage this low latency infrastructure to implement reverse ET
 
 Hey, I go by **Krishna**. Looks like you happen to come across my site. Feel free to explore.
 
-I am currently an Software Engineer at [Cornerstone](https://www.cornerstoneondemand.com/) working on distrubuted postgres infra. We are developing agentic workflows to build an AI platform for workforce learning. I
+I am currently a Software Engineer at [Cornerstone](https://www.cornerstoneondemand.com/) working on distributed postgres infra. We are developing agentic workflows to build an AI platform for workforce learning.
 
 I also love optimization problems. Currently I am researching real-time batch matching for bipartite graphs with novel methods like [Reinforcement Learning](https://arxiv.org/html/2503.13200#:~:text=Reinforcement%20Learning%20%28RL%29,%20a,to%20balance%20efficiency%20and%20responsiveness.).
 
