@@ -2,11 +2,11 @@
 
 Hey, I go by **Krishna**. Looks like you happen to come across my site. Feel free to explore.
 
-I am currently an AI Engineer at [Cornerstone](https://www.cornerstoneondemand.com/). We are developing agentic workflows to build an AI platform for workforce learning.
+I am currently an Software Engineer at [Cornerstone](https://www.cornerstoneondemand.com/) working on distrubuted postgres infra. We are developing agentic workflows to build an AI platform for workforce learning. I
 
-I also like optimization problems. Currently I am researching real-time batch matching for bipartite graphs with novel methods like [Reinforcement Learning](https://arxiv.org/html/2503.13200#:~:text=Reinforcement%20Learning%20%28RL%29,%20a,to%20balance%20efficiency%20and%20responsiveness.).
+I also love optimization problems. Currently I am researching real-time batch matching for bipartite graphs with novel methods like [Reinforcement Learning](https://arxiv.org/html/2503.13200#:~:text=Reinforcement%20Learning%20%28RL%29,%20a,to%20balance%20efficiency%20and%20responsiveness.).
 
-I graduated Fall 2025 with a degree in Computer Science and minor in Statistics from [UC Irvine](https://uci.edu/). While **academics** are one thing, I find university environments provide excellent exposure to all sorts of opportunities: from research initatives to meeting like minded people to name a few.
+I graduated with a degree in Computer Science and minor in Statistics from [UC Irvine](https://uci.edu/). While **academics** are one thing, I find university environments provide excellent exposure to all sorts of opportunities: from research initatives to meeting like minded people to name a few.
 
 Check out some of my [projects](http://rkvempati.com/projects), [writings](https://rkvempati.com/writing), or [photography](https://rkvempati.com/photography).
 <br>
