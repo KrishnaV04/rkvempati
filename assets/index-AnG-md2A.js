@@ -350,7 +350,7 @@ That process of going from an intuition to a formalized idea is what makes this 
 `,vr=`---
 title: "Building LLM Based Neural Search Engines"
 summary: "How the web is being rebuilt for AI agents instead of human readers, with a deep dive into the stacks behind Exa (next link prediction, the Exacluster GPU fleet, a reengineered BM25 index) and Parallel Web Systems (FindAll, Extract, and the Basis verification framework), plus the core techniques they rely on: web scale crawling and deduplication, contrastive embedding training, Matryoshka embeddings, vector quantization, HNSW vs. DiskANN, ColBERT late interaction, and hybrid RAG with RRF, HyDE, and reranking."
-date: "2026-05-17"
+date: "2026-05-21"
 ---
 
 ## Introduction
@@ -359,7 +359,7 @@ I wanted to write about how search engines are being rebuilt for AI. Every time 
 
 AI agents use the web very differently. An agent does not want ten blue links. It wants the exact facts that answer a question, in a clean format, with some way to check that those facts are true. Keyword matching struggles here. It has no real understanding of meaning, it cannot reason across several pages, and it does not return structured data.
 
-A new group of companies is trying to fill that gap. The two I find most interesting are **Exa** (formerly Metaphor) and **Parallel Web Systems**. Instead of patching old search heuristics, they are building search from scratch around neural embeddings, vector databases, and reasoning pipelines. The money behind them shows how seriously the industry takes this. Parallel, founded by former Twitter CEO Parag Agrawal, raised a $100 million Series B led by Sequoia Capital at a $2 billion valuation, less than a year after launching. Exa built a $5 million bare metal GPU cluster dedicated entirely to training retrieval models over the web.
+A new group of companies is trying to fill that gap. The two I find most interesting are **Exa** (formerly Metaphor) and **Parallel Web Systems**. Instead of patching old search heuristics, they are building search from scratch around neural embeddings, vector databases, and reasoning pipelines. The money behind them shows how seriously the industry takes this. Exa was founded by Will Bryk and Jeff Wang, two friends who met as freshmen at Harvard and first built a search engine together in their dorm. In May 2026, Exa [raised a $250 million Series C](https://exa.ai/blog/announcing-series-c) led by Andreessen Horowitz at a $2.2 billion valuation, less than a year after its $85 million Series B. Exa has also put its money into hardware, building a $5 million bare metal GPU cluster dedicated entirely to training retrieval models over the web. Parallel, founded by former Twitter CEO Parag Agrawal, raised a $100 million Series B led by Sequoia Capital at a $2 billion valuation, less than a year after launching. Two companies, both valued at around $2 billion, both betting that AI agents will soon be the web's main readers.
 
 In this article I walk through the full stack of an LLM based search engine, roughly in the order data flows through it. We will start with crawling and cleaning the web, move through how the embedding models are trained and served, look at the hardware Exa runs on, and finish with how Parallel verifies results and how modern RAG pipelines stitch everything together.
 
